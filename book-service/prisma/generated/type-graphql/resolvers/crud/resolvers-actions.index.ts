@@ -1,0 +1,11 @@
+export { FindUniqueBookResolver } from "./Book/FindUniqueBookResolver";
+export { FindFirstBookResolver } from "./Book/FindFirstBookResolver";
+export { FindManyBookResolver } from "./Book/FindManyBookResolver";
+export { CreateBookResolver } from "./Book/CreateBookResolver";
+export { DeleteBookResolver } from "./Book/DeleteBookResolver";
+export { UpdateBookResolver } from "./Book/UpdateBookResolver";
+export { DeleteManyBookResolver } from "./Book/DeleteManyBookResolver";
+export { UpdateManyBookResolver } from "./Book/UpdateManyBookResolver";
+export { UpsertBookResolver } from "./Book/UpsertBookResolver";
+export { AggregateBookResolver } from "./Book/AggregateBookResolver";
+export { GroupByBookResolver } from "./Book/GroupByBookResolver";

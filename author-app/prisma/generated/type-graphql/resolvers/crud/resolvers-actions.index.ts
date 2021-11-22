@@ -1,0 +1,11 @@
+export { FindUniqueAuthorResolver } from "./Author/FindUniqueAuthorResolver";
+export { FindFirstAuthorResolver } from "./Author/FindFirstAuthorResolver";
+export { FindManyAuthorResolver } from "./Author/FindManyAuthorResolver";
+export { CreateAuthorResolver } from "./Author/CreateAuthorResolver";
+export { DeleteAuthorResolver } from "./Author/DeleteAuthorResolver";
+export { UpdateAuthorResolver } from "./Author/UpdateAuthorResolver";
+export { DeleteManyAuthorResolver } from "./Author/DeleteManyAuthorResolver";
+export { UpdateManyAuthorResolver } from "./Author/UpdateManyAuthorResolver";
+export { UpsertAuthorResolver } from "./Author/UpsertAuthorResolver";
+export { AggregateAuthorResolver } from "./Author/AggregateAuthorResolver";
+export { GroupByAuthorResolver } from "./Author/GroupByAuthorResolver";

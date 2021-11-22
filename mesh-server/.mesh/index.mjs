@@ -19,25 +19,28 @@ import { getMesh } from '@graphql-mesh/runtime';
 import { MeshStore, FsStoreStorageAdapter } from '@graphql-mesh/store';
 import { join, relative, isAbsolute, dirname } from 'path';
 import { fileURLToPath } from 'url';
-import ExternalModule_0 from '@graphql-mesh/cache-inmemory-lru';
-import ExternalModule_1 from '@graphql-mesh/graphql';
-import ExternalModule_2 from '@graphql-mesh/merger-stitching';
-import ExternalModule_3 from '@graphql-mesh/transform-type-merging';
-import ExternalModule_4 from './sources/BookService/schema.graphql.cjs';
-import ExternalModule_5 from './sources/AuthorService/schema.graphql.cjs';
+import ExternalModule_0 from 'ts-node/register/transpile-only';
+import ExternalModule_1 from '@graphql-mesh/cache-inmemory-lru';
+import ExternalModule_2 from '@graphql-mesh/graphql';
+import ExternalModule_3 from '@graphql-mesh/merger-stitching';
+import ExternalModule_4 from '@graphql-mesh/transform-type-merging';
+import ExternalModule_5 from './sources/BookService/schema.graphql.cjs';
+import ExternalModule_6 from './sources/AuthorService/schema.graphql.cjs';
 const importedModules = {
     // @ts-ignore
-    ["@graphql-mesh/cache-inmemory-lru"]: ExternalModule_0,
+    ["ts-node/register/transpile-only"]: ExternalModule_0,
     // @ts-ignore
-    ["@graphql-mesh/graphql"]: ExternalModule_1,
+    ["@graphql-mesh/cache-inmemory-lru"]: ExternalModule_1,
     // @ts-ignore
-    ["@graphql-mesh/merger-stitching"]: ExternalModule_2,
+    ["@graphql-mesh/graphql"]: ExternalModule_2,
     // @ts-ignore
-    ["@graphql-mesh/transform-type-merging"]: ExternalModule_3,
+    ["@graphql-mesh/merger-stitching"]: ExternalModule_3,
     // @ts-ignore
-    [".mesh/sources/BookService/schema.graphql.cjs"]: ExternalModule_4,
+    ["@graphql-mesh/transform-type-merging"]: ExternalModule_4,
     // @ts-ignore
-    [".mesh/sources/AuthorService/schema.graphql.cjs"]: ExternalModule_5
+    [".mesh/sources/BookService/schema.graphql.cjs"]: ExternalModule_5,
+    // @ts-ignore
+    [".mesh/sources/AuthorService/schema.graphql.cjs"]: ExternalModule_6
 };
 const baseDir = join(dirname(fileURLToPath(import.meta.url)), '..');
 const importFn = (moduleId) => {
@@ -54,6 +57,7 @@ const rootStore = new MeshStore('.mesh', new FsStoreStorageAdapter({
     readonly: true,
     validate: false
 });
+import 'ts-node/register/transpile-only';
 import MeshCache from '@graphql-mesh/cache-inmemory-lru';
 import { PubSub } from 'graphql-subscriptions';
 import { EventEmitter } from 'events';
@@ -62,7 +66,7 @@ import GraphqlHandler from '@graphql-mesh/graphql';
 import StitchingMerger from '@graphql-mesh/merger-stitching';
 import TypeMergingTransform from '@graphql-mesh/transform-type-merging';
 import { resolveAdditionalResolvers } from '@graphql-mesh/utils';
-export const rawConfig = { "sources": [{ "name": "AuthorService", "handler": { "graphql": { "endpoint": "http://localhost:5000/graphql" } }, "transforms": [{ "typeMerging": { "queryFields": [{ "queryFieldName": "author", "keyField": "id", "keyArg": "ids" }] } }] }, { "name": "BookService", "handler": { "graphql": { "endpoint": "http://localhost:5001/graphql" } }, "transforms": [{ "typeMerging": { "queryFields": [{ "queryFieldName": "book", "keyField": "id" }] } }] }], "additionalTypeDefs": "extend type Book {\n  author: Author\n}\n", "additionalResolvers": [{ "sourceName": "AuthorService", "sourceTypeName": "Query", "sourceFieldName": "authors", "keyField": "authorId", "keysArg": "ids", "targetTypeName": "Book", "targetFieldName": "author" }] };
+export const rawConfig = { "sources": [{ "name": "AuthorService", "handler": { "graphql": { "endpoint": "http://localhost:5000/graphql" } }, "transforms": [{ "typeMerging": { "queryFields": [{ "queryFieldName": "author", "keyField": "id", "keyArgs": "ids" }] } }] }, { "name": "BookService", "handler": { "graphql": { "endpoint": "http://localhost:5001/graphql" } }, "transforms": [{ "typeMerging": { "queryFields": [{ "queryFieldName": "book", "keyField": "id", "keyArg": "ids" }] } }] }], "additionalTypeDefs": "extend type Book {\n  author: Author\n}\n", "additionalResolvers": [{ "sourceName": "AuthorService", "sourceTypeName": "Query", "sourceFieldName": "authors", "keyField": "authorId", "keysArg": "ids", "targetTypeName": "Book", "targetFieldName": "author" }], "require": ["ts-node/register/transpile-only"] };
 export async function getMeshOptions() {
     const cache = new MeshCache({
         ...(rawConfig.cache || {}),

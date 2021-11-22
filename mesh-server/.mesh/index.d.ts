@@ -902,6 +902,7 @@ export declare type AuthorServiceContext = {
 export declare type MeshContext = BookServiceContext & AuthorServiceContext & BaseMeshContext;
 import { GetMeshOptions } from '@graphql-mesh/runtime';
 import { YamlConfig } from '@graphql-mesh/types';
+import 'ts-node/register/transpile-only';
 export declare const rawConfig: YamlConfig.Config;
 export declare function getMeshOptions(): GetMeshOptions;
 export declare const documentsInSDL: any[];

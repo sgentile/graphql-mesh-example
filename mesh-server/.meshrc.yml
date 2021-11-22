@@ -6,19 +6,18 @@ sources:
     transforms:
       - typeMerging:
           queryFields:
-            # No need to define which type it belongs
-            # And no need to define a key for type
-            # keyField assigns to that type automatically
             - queryFieldName: author
-              # Mesh automatically does batching if return type is a list
               keyField: id
-              keyArg: ids # <-- This is needed if you have multiple args
-            #                for that query field
   - name: BookService
     handler:
       graphql:
         endpoint: http://localhost:5001/graphql
     transforms:
+      # - rename:
+      #     renames:
+      #       - from:
+      #           type:
+
       - typeMerging:
           queryFields:
             # No need to define which type it belongs
@@ -27,22 +26,33 @@ sources:
             - queryFieldName: book
               # Mesh automatically does batching if return type is a list
               keyField: id
-              # keyArg: ids
-
 additionalTypeDefs: |
   extend type Book {
     author: Author
   }
 
+# additionalResolvers:
+#   - sourceName: AuthorService
+#     sourceTypeName: Query
+#     sourceFieldName: authors
+#     keyField: authorId
+#     keysArg: ids
+#     targetTypeName: Book
+#     targetFieldName: author
 additionalResolvers:
-  # Create a stitching resolver with batching
-  # to solve N+1 problem
-  - sourceName: AuthorService
-    sourceTypeName: Query
-    sourceFieldName: authors
-    keyField: authorId
-    keysArg: ids
-    targetTypeName: Book
+  - targetTypeName: Book
     targetFieldName: author
+    requiredSelectionSet: |
+      {
+        authorId
+      }
+    sourceName: AuthorService
+    sourceTypeName: Query
+    sourceFieldName: author
+    sourceArgs:
+      where.id: "{root.authorId}"
+
 # documents:
 #   - ./queries/*.graphql
+require:
+  - ts-node/register/transpile-only

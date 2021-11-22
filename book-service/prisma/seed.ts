@@ -14,7 +14,7 @@ async function main() {
     const user2 = await prisma.book.create({
         data: {
             id: 2,
-            name: 'The Lord of the Ringss',
+            name: 'The Lord of the Rings',
             authorId: 2,
         },
     });
