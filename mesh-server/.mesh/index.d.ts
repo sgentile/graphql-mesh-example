@@ -433,6 +433,7 @@ export declare type BookUpdateManyMutationInput = {
 export declare type Author = {
     id: Scalars['Int'];
     name?: Maybe<Scalars['String']>;
+    books?: Maybe<Array<Maybe<Book>>>;
 };
 export declare type AuthorWhereUniqueInput = {
     id?: InputMaybe<Scalars['Int']>;
@@ -786,6 +787,7 @@ export declare type AffectedRowsOutputResolvers<ContextType = MeshContext, Paren
 export declare type AuthorResolvers<ContextType = MeshContext, ParentType extends ResolversParentTypes['Author'] = ResolversParentTypes['Author']> = ResolversObject<{
     id?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
     name?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+    books?: Resolver<Maybe<Array<Maybe<ResolversTypes['Book']>>>, ParentType, ContextType>;
     __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 }>;
 export declare type AggregateAuthorResolvers<ContextType = MeshContext, ParentType extends ResolversParentTypes['AggregateAuthor'] = ResolversParentTypes['AggregateAuthor']> = ResolversObject<{

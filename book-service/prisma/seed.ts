@@ -6,14 +6,14 @@ async function main() {
     await prisma.book.deleteMany({});
     const user1 = await prisma.book.create({
         data: {
-            id: 1,
+            id: 3,
             name: 'A Tale of Two Cities',
             authorId: 1,
         },
     });
     const user2 = await prisma.book.create({
         data: {
-            id: 2,
+            id: 4,
             name: 'The Lord of the Rings',
             authorId: 2,
         },

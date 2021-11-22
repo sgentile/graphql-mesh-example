@@ -13,32 +13,18 @@ sources:
       graphql:
         endpoint: http://localhost:5001/graphql
     transforms:
-      # - rename:
-      #     renames:
-      #       - from:
-      #           type:
-
       - typeMerging:
           queryFields:
-            # No need to define which type it belongs
-            # And no need to define a key for type
-            # keyField assigns to that type automatically
             - queryFieldName: book
-              # Mesh automatically does batching if return type is a list
               keyField: id
 additionalTypeDefs: |
   extend type Book {
     author: Author
   }
+  extend type Author {
+    books: [Book]
+  }
 
-# additionalResolvers:
-#   - sourceName: AuthorService
-#     sourceTypeName: Query
-#     sourceFieldName: authors
-#     keyField: authorId
-#     keysArg: ids
-#     targetTypeName: Book
-#     targetFieldName: author
 additionalResolvers:
   - targetTypeName: Book
     targetFieldName: author
@@ -51,8 +37,35 @@ additionalResolvers:
     sourceFieldName: author
     sourceArgs:
       where.id: "{root.authorId}"
+  - targetTypeName: Author
+    targetFieldName: books
+    requiredSelectionSet: |
+      {
+        id
+      }
+    sourceName: BookService
+    sourceTypeName: Query
+    sourceFieldName: books
+    sourceArgs:
+      where.authorId.equals: "{root.id}"
 
-# documents:
-#   - ./queries/*.graphql
+  # books(where: {authorId: {equals: 1}}) {
+
+  # - sourceName: BookService
+  #   sourceTypeName: Query
+  #   sourceFieldName: books
+  #   keyField: authorId
+  #   keysArg: ids
+  #   targetTypeName: Author
+  #   targetFieldName: book
+
+# targetTypeName: the type of what you’re trying to resolve
+# targetFieldName: the field on the type of what you’re trying to resolve
+# requiredSelectionSet: the fields you need to pass to your Query/Mutation (specified by sourceTypeName) with the name sourceFieldName.
+# sourceName: which endpoint you’d like to use for your query/mutation
+# sourceTypeName what type of request you’re making (Query/Mutation)
+# sourceFieldName: the name of the query/mutation
+# sourceArgs: what args the sourceFieldName requires to run
+
 require:
   - ts-node/register/transpile-only

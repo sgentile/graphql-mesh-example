@@ -69,7 +69,7 @@ const graphql_3 = (0, tslib_1.__importDefault)(require("@graphql-mesh/graphql"))
 const merger_stitching_2 = (0, tslib_1.__importDefault)(require("@graphql-mesh/merger-stitching"));
 const transform_type_merging_2 = (0, tslib_1.__importDefault)(require("@graphql-mesh/transform-type-merging"));
 const utils_2 = require("@graphql-mesh/utils");
-exports.rawConfig = { "sources": [{ "name": "AuthorService", "handler": { "graphql": { "endpoint": "http://localhost:5000/graphql" } }, "transforms": [{ "typeMerging": { "queryFields": [{ "queryFieldName": "author", "keyField": "id", "keyArgs": "ids" }] } }] }, { "name": "BookService", "handler": { "graphql": { "endpoint": "http://localhost:5001/graphql" } }, "transforms": [{ "typeMerging": { "queryFields": [{ "queryFieldName": "book", "keyField": "id", "keyArg": "ids" }] } }] }], "additionalTypeDefs": "extend type Book {\n  author: Author\n}\n", "additionalResolvers": [{ "sourceName": "AuthorService", "sourceTypeName": "Query", "sourceFieldName": "authors", "keyField": "authorId", "keysArg": "ids", "targetTypeName": "Book", "targetFieldName": "author" }], "require": ["ts-node/register/transpile-only"] };
+exports.rawConfig = { "sources": [{ "name": "AuthorService", "handler": { "graphql": { "endpoint": "http://localhost:5000/graphql" } }, "transforms": [{ "typeMerging": { "queryFields": [{ "queryFieldName": "author", "keyField": "id" }] } }] }, { "name": "BookService", "handler": { "graphql": { "endpoint": "http://localhost:5001/graphql" } }, "transforms": [{ "typeMerging": { "queryFields": [{ "queryFieldName": "book", "keyField": "id" }] } }] }], "additionalTypeDefs": "extend type Book {\n  author: Author\n}\nextend type Author {\n  books: [Book]\n}\n", "additionalResolvers": [{ "targetTypeName": "Book", "targetFieldName": "author", "requiredSelectionSet": "{\n  authorId\n}\n", "sourceName": "AuthorService", "sourceTypeName": "Query", "sourceFieldName": "author", "sourceArgs": { "where.id": "{root.authorId}" } }, { "targetTypeName": "Author", "targetFieldName": "books", "requiredSelectionSet": "{\n  id\n}\n", "sourceName": "BookService", "sourceTypeName": "Query", "sourceFieldName": "books", "sourceArgs": { "where.authorId.equals": "{root.id}" } }], "require": ["ts-node/register/transpile-only"] };
 async function getMeshOptions() {
     const cache = new cache_inmemory_lru_2.default({
         ...(exports.rawConfig.cache || {}),
@@ -112,6 +112,10 @@ async function getMeshOptions() {
     });
     const additionalTypeDefs = [(0, graphql_1.parse)(/* GraphQL */ `extend type Book {
   author: Author
+}
+
+extend type Author {
+  books: [Book]
 }`),];
     authorServiceTransforms.push(new transform_type_merging_2.default({
         apiName: exports.rawConfig.sources[0].name,
@@ -141,6 +145,7 @@ async function getMeshOptions() {
     });
     const additionalResolversRawConfig = [];
     additionalResolversRawConfig.push(exports.rawConfig.additionalResolvers[0]);
+    additionalResolversRawConfig.push(exports.rawConfig.additionalResolvers[1]);
     const additionalResolvers = await (0, utils_2.resolveAdditionalResolvers)(baseDir, additionalResolversRawConfig, importFn, pubsub);
     const liveQueryInvalidations = exports.rawConfig.liveQueryInvalidations;
     return {

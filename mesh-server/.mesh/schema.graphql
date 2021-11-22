@@ -4,12 +4,12 @@ schema {
 }
 
 type Query {
-  book(where: BookWhereUniqueInput!): Book @merge(keyField: "id", keyArg: "ids")
+  book(where: BookWhereUniqueInput!): Book @merge(keyField: "id")
   findFirstBook(where: BookWhereInput, orderBy: [BookOrderByWithRelationInput!], cursor: BookWhereUniqueInput, take: Int, skip: Int, distinct: [BookScalarFieldEnum!]): Book
   books(where: BookWhereInput, orderBy: [BookOrderByWithRelationInput!], cursor: BookWhereUniqueInput, take: Int, skip: Int, distinct: [BookScalarFieldEnum!]): [Book!]!
   aggregateBook(where: BookWhereInput, orderBy: [BookOrderByWithRelationInput!], cursor: BookWhereUniqueInput, take: Int, skip: Int): AggregateBook!
   groupByBook(where: BookWhereInput, orderBy: [BookOrderByWithAggregationInput!], by: [BookScalarFieldEnum!]!, having: BookScalarWhereWithAggregatesInput, take: Int, skip: Int): [BookGroupBy!]!
-  author(where: AuthorWhereUniqueInput!): Author @merge(keyField: "id", keyArgs: "ids")
+  author(where: AuthorWhereUniqueInput!): Author @merge(keyField: "id")
   findFirstAuthor(where: AuthorWhereInput, orderBy: [AuthorOrderByWithRelationInput!], cursor: AuthorWhereUniqueInput, take: Int, skip: Int, distinct: [AuthorScalarFieldEnum!]): Author
   authors(where: AuthorWhereInput, orderBy: [AuthorOrderByWithRelationInput!], cursor: AuthorWhereUniqueInput, take: Int, skip: Int, distinct: [AuthorScalarFieldEnum!]): [Author!]!
   aggregateAuthor(where: AuthorWhereInput, orderBy: [AuthorOrderByWithRelationInput!], cursor: AuthorWhereUniqueInput, take: Int, skip: Int): AggregateAuthor!
@@ -336,6 +336,7 @@ input BookUpdateManyMutationInput {
 type Author {
   id: Int!
   name: String
+  books: [Book]
 }
 
 input AuthorWhereUniqueInput {
