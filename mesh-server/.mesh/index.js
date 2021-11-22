@@ -1,23 +1,23 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getSdk = exports.getMeshSDK = exports.getBuiltMesh = exports.documentsInSDL = exports.getMeshOptions = exports.rawConfig = exports.AuthorScalarFieldEnum = exports.BookScalarFieldEnum = exports.SortOrder = void 0;
+exports.getSdk = exports.getMeshSDK = exports.getBuiltMesh = exports.documentsInSDL = exports.getMeshOptions = exports.rawConfig = exports.BookScalarFieldEnum = exports.AuthorScalarFieldEnum = exports.SortOrder = void 0;
 const tslib_1 = require("tslib");
 var SortOrder;
 (function (SortOrder) {
     SortOrder["asc"] = "asc";
     SortOrder["desc"] = "desc";
 })(SortOrder = exports.SortOrder || (exports.SortOrder = {}));
+var AuthorScalarFieldEnum;
+(function (AuthorScalarFieldEnum) {
+    AuthorScalarFieldEnum["id"] = "id";
+    AuthorScalarFieldEnum["name"] = "name";
+})(AuthorScalarFieldEnum = exports.AuthorScalarFieldEnum || (exports.AuthorScalarFieldEnum = {}));
 var BookScalarFieldEnum;
 (function (BookScalarFieldEnum) {
     BookScalarFieldEnum["id"] = "id";
     BookScalarFieldEnum["name"] = "name";
     BookScalarFieldEnum["authorId"] = "authorId";
 })(BookScalarFieldEnum = exports.BookScalarFieldEnum || (exports.BookScalarFieldEnum = {}));
-var AuthorScalarFieldEnum;
-(function (AuthorScalarFieldEnum) {
-    AuthorScalarFieldEnum["id"] = "id";
-    AuthorScalarFieldEnum["name"] = "name";
-})(AuthorScalarFieldEnum = exports.AuthorScalarFieldEnum || (exports.AuthorScalarFieldEnum = {}));
 const graphql_1 = require("graphql");
 const runtime_1 = require("@graphql-mesh/runtime");
 const store_1 = require("@graphql-mesh/store");
@@ -26,9 +26,8 @@ const transpile_only_1 = (0, tslib_1.__importDefault)(require("ts-node/register/
 const cache_inmemory_lru_1 = (0, tslib_1.__importDefault)(require("@graphql-mesh/cache-inmemory-lru"));
 const graphql_2 = (0, tslib_1.__importDefault)(require("@graphql-mesh/graphql"));
 const merger_stitching_1 = (0, tslib_1.__importDefault)(require("@graphql-mesh/merger-stitching"));
-const transform_type_merging_1 = (0, tslib_1.__importDefault)(require("@graphql-mesh/transform-type-merging"));
-const schema_graphql_cjs_1 = (0, tslib_1.__importDefault)(require("./sources/BookService/schema.graphql.cjs"));
-const schema_graphql_cjs_2 = (0, tslib_1.__importDefault)(require("./sources/AuthorService/schema.graphql.cjs"));
+const schema_graphql_cjs_1 = (0, tslib_1.__importDefault)(require("./sources/AuthorService/schema.graphql.cjs"));
+const schema_graphql_cjs_2 = (0, tslib_1.__importDefault)(require("./sources/BookService/schema.graphql.cjs"));
 const importedModules = {
     // @ts-ignore
     ["ts-node/register/transpile-only"]: transpile_only_1.default,
@@ -39,11 +38,9 @@ const importedModules = {
     // @ts-ignore
     ["@graphql-mesh/merger-stitching"]: merger_stitching_1.default,
     // @ts-ignore
-    ["@graphql-mesh/transform-type-merging"]: transform_type_merging_1.default,
+    [".mesh/sources/AuthorService/schema.graphql.cjs"]: schema_graphql_cjs_1.default,
     // @ts-ignore
-    [".mesh/sources/BookService/schema.graphql.cjs"]: schema_graphql_cjs_1.default,
-    // @ts-ignore
-    [".mesh/sources/AuthorService/schema.graphql.cjs"]: schema_graphql_cjs_2.default
+    [".mesh/sources/BookService/schema.graphql.cjs"]: schema_graphql_cjs_2.default
 };
 const baseDir = (0, path_1.join)(__dirname, '..');
 const importFn = (moduleId) => {
@@ -67,9 +64,8 @@ const events_1 = require("events");
 const utils_1 = require("@graphql-mesh/utils");
 const graphql_3 = (0, tslib_1.__importDefault)(require("@graphql-mesh/graphql"));
 const merger_stitching_2 = (0, tslib_1.__importDefault)(require("@graphql-mesh/merger-stitching"));
-const transform_type_merging_2 = (0, tslib_1.__importDefault)(require("@graphql-mesh/transform-type-merging"));
 const utils_2 = require("@graphql-mesh/utils");
-exports.rawConfig = { "sources": [{ "name": "AuthorService", "handler": { "graphql": { "endpoint": "http://localhost:5000/graphql" } }, "transforms": [{ "typeMerging": { "queryFields": [{ "queryFieldName": "author", "keyField": "id" }] } }] }, { "name": "BookService", "handler": { "graphql": { "endpoint": "http://localhost:5001/graphql" } }, "transforms": [{ "typeMerging": { "queryFields": [{ "queryFieldName": "book", "keyField": "id" }] } }] }], "additionalTypeDefs": "extend type Book {\n  author: Author\n}\nextend type Author {\n  books: [Book]\n}\n", "additionalResolvers": [{ "targetTypeName": "Book", "targetFieldName": "author", "requiredSelectionSet": "{\n  authorId\n}\n", "sourceName": "AuthorService", "sourceTypeName": "Query", "sourceFieldName": "author", "sourceArgs": { "where.id": "{root.authorId}" } }, { "targetTypeName": "Author", "targetFieldName": "books", "requiredSelectionSet": "{\n  id\n}\n", "sourceName": "BookService", "sourceTypeName": "Query", "sourceFieldName": "books", "sourceArgs": { "where.authorId.equals": "{root.id}" } }], "require": ["ts-node/register/transpile-only"] };
+exports.rawConfig = { "sources": [{ "name": "AuthorService", "handler": { "graphql": { "endpoint": "http://localhost:5000/graphql" } } }, { "name": "BookService", "handler": { "graphql": { "endpoint": "http://localhost:5001/graphql" } } }], "additionalTypeDefs": "extend type Book {\n  author: Author\n}\nextend type Author {\n  books: [Book]\n}\n", "additionalResolvers": [{ "targetTypeName": "Book", "targetFieldName": "author", "requiredSelectionSet": "{\n  authorId\n}\n", "sourceName": "AuthorService", "sourceTypeName": "Query", "sourceFieldName": "author", "sourceArgs": { "where.id": "{root.authorId}" } }, { "targetTypeName": "Author", "targetFieldName": "books", "requiredSelectionSet": "{\n  id\n}\n", "sourceName": "BookService", "sourceTypeName": "Query", "sourceFieldName": "books", "sourceArgs": { "where.authorId.equals": "{root.id}" } }], "require": ["ts-node/register/transpile-only"] };
 async function getMeshOptions() {
     const cache = new cache_inmemory_lru_2.default({
         ...(exports.rawConfig.cache || {}),
@@ -104,6 +100,16 @@ async function getMeshOptions() {
         logger: logger.child(exports.rawConfig.sources[1].name),
         importFn
     });
+    sources.push({
+        name: 'AuthorService',
+        handler: authorServiceHandler,
+        transforms: authorServiceTransforms
+    });
+    sources.push({
+        name: 'BookService',
+        handler: bookServiceHandler,
+        transforms: bookServiceTransforms
+    });
     const merger = new merger_stitching_2.default({
         cache,
         pubsub,
@@ -117,32 +123,6 @@ async function getMeshOptions() {
 extend type Author {
   books: [Book]
 }`),];
-    authorServiceTransforms.push(new transform_type_merging_2.default({
-        apiName: exports.rawConfig.sources[0].name,
-        config: exports.rawConfig.sources[0].transforms[0]["typeMerging"],
-        baseDir,
-        cache,
-        pubsub,
-        importFn
-    }));
-    bookServiceTransforms.push(new transform_type_merging_2.default({
-        apiName: exports.rawConfig.sources[1].name,
-        config: exports.rawConfig.sources[1].transforms[0]["typeMerging"],
-        baseDir,
-        cache,
-        pubsub,
-        importFn
-    }));
-    sources.push({
-        name: 'AuthorService',
-        handler: authorServiceHandler,
-        transforms: authorServiceTransforms
-    });
-    sources.push({
-        name: 'BookService',
-        handler: bookServiceHandler,
-        transforms: bookServiceTransforms
-    });
     const additionalResolversRawConfig = [];
     additionalResolversRawConfig.push(exports.rawConfig.additionalResolvers[0]);
     additionalResolversRawConfig.push(exports.rawConfig.additionalResolvers[1]);

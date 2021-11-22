@@ -3,20 +3,20 @@ sources:
     handler:
       graphql:
         endpoint: http://localhost:5000/graphql
-    transforms:
-      - typeMerging:
-          queryFields:
-            - queryFieldName: author
-              keyField: id
+    # transforms:
+    #   - typeMerging:
+    #       queryFields:
+    #         - queryFieldName: author
+    #           keyField: id
   - name: BookService
     handler:
       graphql:
         endpoint: http://localhost:5001/graphql
-    transforms:
-      - typeMerging:
-          queryFields:
-            - queryFieldName: book
-              keyField: id
+    # transforms:
+    #   - typeMerging:
+    #       queryFields:
+    #         - queryFieldName: book
+    #           keyField: id
 additionalTypeDefs: |
   extend type Book {
     author: Author
@@ -48,16 +48,6 @@ additionalResolvers:
     sourceFieldName: books
     sourceArgs:
       where.authorId.equals: "{root.id}"
-
-  # books(where: {authorId: {equals: 1}}) {
-
-  # - sourceName: BookService
-  #   sourceTypeName: Query
-  #   sourceFieldName: books
-  #   keyField: authorId
-  #   keysArg: ids
-  #   targetTypeName: Author
-  #   targetFieldName: book
 
 # targetTypeName: the type of what you’re trying to resolve
 # targetFieldName: the field on the type of what you’re trying to resolve

@@ -27,50 +27,16 @@ export declare type Scalars = {
     Float: number;
 };
 export declare type Query = {
-    book?: Maybe<Book>;
-    findFirstBook?: Maybe<Book>;
-    books: Array<Book>;
-    aggregateBook: AggregateBook;
-    groupByBook: Array<BookGroupBy>;
     author?: Maybe<Author>;
     findFirstAuthor?: Maybe<Author>;
     authors: Array<Author>;
     aggregateAuthor: AggregateAuthor;
     groupByAuthor: Array<AuthorGroupBy>;
-};
-export declare type QuerybookArgs = {
-    where: BookWhereUniqueInput;
-};
-export declare type QueryfindFirstBookArgs = {
-    where?: InputMaybe<BookWhereInput>;
-    orderBy?: InputMaybe<Array<BookOrderByWithRelationInput>>;
-    cursor?: InputMaybe<BookWhereUniqueInput>;
-    take?: InputMaybe<Scalars['Int']>;
-    skip?: InputMaybe<Scalars['Int']>;
-    distinct?: InputMaybe<Array<BookScalarFieldEnum>>;
-};
-export declare type QuerybooksArgs = {
-    where?: InputMaybe<BookWhereInput>;
-    orderBy?: InputMaybe<Array<BookOrderByWithRelationInput>>;
-    cursor?: InputMaybe<BookWhereUniqueInput>;
-    take?: InputMaybe<Scalars['Int']>;
-    skip?: InputMaybe<Scalars['Int']>;
-    distinct?: InputMaybe<Array<BookScalarFieldEnum>>;
-};
-export declare type QueryaggregateBookArgs = {
-    where?: InputMaybe<BookWhereInput>;
-    orderBy?: InputMaybe<Array<BookOrderByWithRelationInput>>;
-    cursor?: InputMaybe<BookWhereUniqueInput>;
-    take?: InputMaybe<Scalars['Int']>;
-    skip?: InputMaybe<Scalars['Int']>;
-};
-export declare type QuerygroupByBookArgs = {
-    where?: InputMaybe<BookWhereInput>;
-    orderBy?: InputMaybe<Array<BookOrderByWithAggregationInput>>;
-    by: Array<BookScalarFieldEnum>;
-    having?: InputMaybe<BookScalarWhereWithAggregatesInput>;
-    take?: InputMaybe<Scalars['Int']>;
-    skip?: InputMaybe<Scalars['Int']>;
+    book?: Maybe<Book>;
+    findFirstBook?: Maybe<Book>;
+    books: Array<Book>;
+    aggregateBook: AggregateBook;
+    groupByBook: Array<BookGroupBy>;
 };
 export declare type QueryauthorArgs = {
     where: AuthorWhereUniqueInput;
@@ -106,41 +72,53 @@ export declare type QuerygroupByAuthorArgs = {
     take?: InputMaybe<Scalars['Int']>;
     skip?: InputMaybe<Scalars['Int']>;
 };
+export declare type QuerybookArgs = {
+    where: BookWhereUniqueInput;
+};
+export declare type QueryfindFirstBookArgs = {
+    where?: InputMaybe<BookWhereInput>;
+    orderBy?: InputMaybe<Array<BookOrderByWithRelationInput>>;
+    cursor?: InputMaybe<BookWhereUniqueInput>;
+    take?: InputMaybe<Scalars['Int']>;
+    skip?: InputMaybe<Scalars['Int']>;
+    distinct?: InputMaybe<Array<BookScalarFieldEnum>>;
+};
+export declare type QuerybooksArgs = {
+    where?: InputMaybe<BookWhereInput>;
+    orderBy?: InputMaybe<Array<BookOrderByWithRelationInput>>;
+    cursor?: InputMaybe<BookWhereUniqueInput>;
+    take?: InputMaybe<Scalars['Int']>;
+    skip?: InputMaybe<Scalars['Int']>;
+    distinct?: InputMaybe<Array<BookScalarFieldEnum>>;
+};
+export declare type QueryaggregateBookArgs = {
+    where?: InputMaybe<BookWhereInput>;
+    orderBy?: InputMaybe<Array<BookOrderByWithRelationInput>>;
+    cursor?: InputMaybe<BookWhereUniqueInput>;
+    take?: InputMaybe<Scalars['Int']>;
+    skip?: InputMaybe<Scalars['Int']>;
+};
+export declare type QuerygroupByBookArgs = {
+    where?: InputMaybe<BookWhereInput>;
+    orderBy?: InputMaybe<Array<BookOrderByWithAggregationInput>>;
+    by: Array<BookScalarFieldEnum>;
+    having?: InputMaybe<BookScalarWhereWithAggregatesInput>;
+    take?: InputMaybe<Scalars['Int']>;
+    skip?: InputMaybe<Scalars['Int']>;
+};
 export declare type Mutation = {
-    createBook: Book;
-    deleteBook?: Maybe<Book>;
-    updateBook?: Maybe<Book>;
-    deleteManyBook: AffectedRowsOutput;
-    updateManyBook: AffectedRowsOutput;
-    upsertBook: Book;
     createAuthor: Author;
     deleteAuthor?: Maybe<Author>;
     updateAuthor?: Maybe<Author>;
     deleteManyAuthor: AffectedRowsOutput;
     updateManyAuthor: AffectedRowsOutput;
     upsertAuthor: Author;
-};
-export declare type MutationcreateBookArgs = {
-    data: BookCreateInput;
-};
-export declare type MutationdeleteBookArgs = {
-    where: BookWhereUniqueInput;
-};
-export declare type MutationupdateBookArgs = {
-    data: BookUpdateInput;
-    where: BookWhereUniqueInput;
-};
-export declare type MutationdeleteManyBookArgs = {
-    where?: InputMaybe<BookWhereInput>;
-};
-export declare type MutationupdateManyBookArgs = {
-    data: BookUpdateManyMutationInput;
-    where?: InputMaybe<BookWhereInput>;
-};
-export declare type MutationupsertBookArgs = {
-    where: BookWhereUniqueInput;
-    create: BookCreateInput;
-    update: BookUpdateInput;
+    createBook: Book;
+    deleteBook?: Maybe<Book>;
+    updateBook?: Maybe<Book>;
+    deleteManyBook: AffectedRowsOutput;
+    updateManyBook: AffectedRowsOutput;
+    upsertBook: Book;
 };
 export declare type MutationcreateAuthorArgs = {
     data: AuthorCreateInput;
@@ -164,22 +142,42 @@ export declare type MutationupsertAuthorArgs = {
     create: AuthorCreateInput;
     update: AuthorUpdateInput;
 };
-export declare type Book = {
+export declare type MutationcreateBookArgs = {
+    data: BookCreateInput;
+};
+export declare type MutationdeleteBookArgs = {
+    where: BookWhereUniqueInput;
+};
+export declare type MutationupdateBookArgs = {
+    data: BookUpdateInput;
+    where: BookWhereUniqueInput;
+};
+export declare type MutationdeleteManyBookArgs = {
+    where?: InputMaybe<BookWhereInput>;
+};
+export declare type MutationupdateManyBookArgs = {
+    data: BookUpdateManyMutationInput;
+    where?: InputMaybe<BookWhereInput>;
+};
+export declare type MutationupsertBookArgs = {
+    where: BookWhereUniqueInput;
+    create: BookCreateInput;
+    update: BookUpdateInput;
+};
+export declare type Author = {
     id: Scalars['Int'];
     name?: Maybe<Scalars['String']>;
-    authorId: Scalars['Int'];
-    author?: Maybe<Author>;
+    books?: Maybe<Array<Maybe<Book>>>;
 };
-export declare type BookWhereUniqueInput = {
+export declare type AuthorWhereUniqueInput = {
     id?: InputMaybe<Scalars['Int']>;
 };
-export declare type BookWhereInput = {
-    AND?: InputMaybe<Array<BookWhereInput>>;
-    OR?: InputMaybe<Array<BookWhereInput>>;
-    NOT?: InputMaybe<Array<BookWhereInput>>;
+export declare type AuthorWhereInput = {
+    AND?: InputMaybe<Array<AuthorWhereInput>>;
+    OR?: InputMaybe<Array<AuthorWhereInput>>;
+    NOT?: InputMaybe<Array<AuthorWhereInput>>;
     id?: InputMaybe<IntFilter>;
     name?: InputMaybe<StringNullableFilter>;
-    authorId?: InputMaybe<IntFilter>;
 };
 export declare type IntFilter = {
     equals?: InputMaybe<Scalars['Int']>;
@@ -227,15 +225,206 @@ export declare type NestedStringNullableFilter = {
     endsWith?: InputMaybe<Scalars['String']>;
     not?: InputMaybe<NestedStringNullableFilter>;
 };
-export declare type BookOrderByWithRelationInput = {
+export declare type AuthorOrderByWithRelationInput = {
     id?: InputMaybe<SortOrder>;
     name?: InputMaybe<SortOrder>;
-    authorId?: InputMaybe<SortOrder>;
 };
 export declare enum SortOrder {
     asc = "asc",
     desc = "desc"
 }
+export declare enum AuthorScalarFieldEnum {
+    id = "id",
+    name = "name"
+}
+export declare type AggregateAuthor = {
+    _count?: Maybe<AuthorCountAggregate>;
+    _avg?: Maybe<AuthorAvgAggregate>;
+    _sum?: Maybe<AuthorSumAggregate>;
+    _min?: Maybe<AuthorMinAggregate>;
+    _max?: Maybe<AuthorMaxAggregate>;
+};
+export declare type AuthorCountAggregate = {
+    id: Scalars['Int'];
+    name: Scalars['Int'];
+    _all: Scalars['Int'];
+};
+export declare type AuthorAvgAggregate = {
+    id?: Maybe<Scalars['Float']>;
+};
+export declare type AuthorSumAggregate = {
+    id?: Maybe<Scalars['Int']>;
+};
+export declare type AuthorMinAggregate = {
+    id?: Maybe<Scalars['Int']>;
+    name?: Maybe<Scalars['String']>;
+};
+export declare type AuthorMaxAggregate = {
+    id?: Maybe<Scalars['Int']>;
+    name?: Maybe<Scalars['String']>;
+};
+export declare type AuthorGroupBy = {
+    id: Scalars['Int'];
+    name?: Maybe<Scalars['String']>;
+    _count?: Maybe<AuthorCountAggregate>;
+    _avg?: Maybe<AuthorAvgAggregate>;
+    _sum?: Maybe<AuthorSumAggregate>;
+    _min?: Maybe<AuthorMinAggregate>;
+    _max?: Maybe<AuthorMaxAggregate>;
+};
+export declare type AuthorOrderByWithAggregationInput = {
+    id?: InputMaybe<SortOrder>;
+    name?: InputMaybe<SortOrder>;
+    _count?: InputMaybe<AuthorCountOrderByAggregateInput>;
+    _avg?: InputMaybe<AuthorAvgOrderByAggregateInput>;
+    _max?: InputMaybe<AuthorMaxOrderByAggregateInput>;
+    _min?: InputMaybe<AuthorMinOrderByAggregateInput>;
+    _sum?: InputMaybe<AuthorSumOrderByAggregateInput>;
+};
+export declare type AuthorCountOrderByAggregateInput = {
+    id?: InputMaybe<SortOrder>;
+    name?: InputMaybe<SortOrder>;
+};
+export declare type AuthorAvgOrderByAggregateInput = {
+    id?: InputMaybe<SortOrder>;
+};
+export declare type AuthorMaxOrderByAggregateInput = {
+    id?: InputMaybe<SortOrder>;
+    name?: InputMaybe<SortOrder>;
+};
+export declare type AuthorMinOrderByAggregateInput = {
+    id?: InputMaybe<SortOrder>;
+    name?: InputMaybe<SortOrder>;
+};
+export declare type AuthorSumOrderByAggregateInput = {
+    id?: InputMaybe<SortOrder>;
+};
+export declare type AuthorScalarWhereWithAggregatesInput = {
+    AND?: InputMaybe<Array<AuthorScalarWhereWithAggregatesInput>>;
+    OR?: InputMaybe<Array<AuthorScalarWhereWithAggregatesInput>>;
+    NOT?: InputMaybe<Array<AuthorScalarWhereWithAggregatesInput>>;
+    id?: InputMaybe<IntWithAggregatesFilter>;
+    name?: InputMaybe<StringNullableWithAggregatesFilter>;
+};
+export declare type IntWithAggregatesFilter = {
+    equals?: InputMaybe<Scalars['Int']>;
+    in?: InputMaybe<Array<Scalars['Int']>>;
+    notIn?: InputMaybe<Array<Scalars['Int']>>;
+    lt?: InputMaybe<Scalars['Int']>;
+    lte?: InputMaybe<Scalars['Int']>;
+    gt?: InputMaybe<Scalars['Int']>;
+    gte?: InputMaybe<Scalars['Int']>;
+    not?: InputMaybe<NestedIntWithAggregatesFilter>;
+    _count?: InputMaybe<NestedIntFilter>;
+    _avg?: InputMaybe<NestedFloatFilter>;
+    _sum?: InputMaybe<NestedIntFilter>;
+    _min?: InputMaybe<NestedIntFilter>;
+    _max?: InputMaybe<NestedIntFilter>;
+};
+export declare type NestedIntWithAggregatesFilter = {
+    equals?: InputMaybe<Scalars['Int']>;
+    in?: InputMaybe<Array<Scalars['Int']>>;
+    notIn?: InputMaybe<Array<Scalars['Int']>>;
+    lt?: InputMaybe<Scalars['Int']>;
+    lte?: InputMaybe<Scalars['Int']>;
+    gt?: InputMaybe<Scalars['Int']>;
+    gte?: InputMaybe<Scalars['Int']>;
+    not?: InputMaybe<NestedIntWithAggregatesFilter>;
+    _count?: InputMaybe<NestedIntFilter>;
+    _avg?: InputMaybe<NestedFloatFilter>;
+    _sum?: InputMaybe<NestedIntFilter>;
+    _min?: InputMaybe<NestedIntFilter>;
+    _max?: InputMaybe<NestedIntFilter>;
+};
+export declare type NestedFloatFilter = {
+    equals?: InputMaybe<Scalars['Float']>;
+    in?: InputMaybe<Array<Scalars['Float']>>;
+    notIn?: InputMaybe<Array<Scalars['Float']>>;
+    lt?: InputMaybe<Scalars['Float']>;
+    lte?: InputMaybe<Scalars['Float']>;
+    gt?: InputMaybe<Scalars['Float']>;
+    gte?: InputMaybe<Scalars['Float']>;
+    not?: InputMaybe<NestedFloatFilter>;
+};
+export declare type StringNullableWithAggregatesFilter = {
+    equals?: InputMaybe<Scalars['String']>;
+    in?: InputMaybe<Array<Scalars['String']>>;
+    notIn?: InputMaybe<Array<Scalars['String']>>;
+    lt?: InputMaybe<Scalars['String']>;
+    lte?: InputMaybe<Scalars['String']>;
+    gt?: InputMaybe<Scalars['String']>;
+    gte?: InputMaybe<Scalars['String']>;
+    contains?: InputMaybe<Scalars['String']>;
+    startsWith?: InputMaybe<Scalars['String']>;
+    endsWith?: InputMaybe<Scalars['String']>;
+    not?: InputMaybe<NestedStringNullableWithAggregatesFilter>;
+    _count?: InputMaybe<NestedIntNullableFilter>;
+    _min?: InputMaybe<NestedStringNullableFilter>;
+    _max?: InputMaybe<NestedStringNullableFilter>;
+};
+export declare type NestedStringNullableWithAggregatesFilter = {
+    equals?: InputMaybe<Scalars['String']>;
+    in?: InputMaybe<Array<Scalars['String']>>;
+    notIn?: InputMaybe<Array<Scalars['String']>>;
+    lt?: InputMaybe<Scalars['String']>;
+    lte?: InputMaybe<Scalars['String']>;
+    gt?: InputMaybe<Scalars['String']>;
+    gte?: InputMaybe<Scalars['String']>;
+    contains?: InputMaybe<Scalars['String']>;
+    startsWith?: InputMaybe<Scalars['String']>;
+    endsWith?: InputMaybe<Scalars['String']>;
+    not?: InputMaybe<NestedStringNullableWithAggregatesFilter>;
+    _count?: InputMaybe<NestedIntNullableFilter>;
+    _min?: InputMaybe<NestedStringNullableFilter>;
+    _max?: InputMaybe<NestedStringNullableFilter>;
+};
+export declare type NestedIntNullableFilter = {
+    equals?: InputMaybe<Scalars['Int']>;
+    in?: InputMaybe<Array<Scalars['Int']>>;
+    notIn?: InputMaybe<Array<Scalars['Int']>>;
+    lt?: InputMaybe<Scalars['Int']>;
+    lte?: InputMaybe<Scalars['Int']>;
+    gt?: InputMaybe<Scalars['Int']>;
+    gte?: InputMaybe<Scalars['Int']>;
+    not?: InputMaybe<NestedIntNullableFilter>;
+};
+export declare type AuthorCreateInput = {
+    name?: InputMaybe<Scalars['String']>;
+};
+export declare type AuthorUpdateInput = {
+    name?: InputMaybe<NullableStringFieldUpdateOperationsInput>;
+};
+export declare type NullableStringFieldUpdateOperationsInput = {
+    set?: InputMaybe<Scalars['String']>;
+};
+export declare type AffectedRowsOutput = {
+    count: Scalars['Int'];
+};
+export declare type AuthorUpdateManyMutationInput = {
+    name?: InputMaybe<NullableStringFieldUpdateOperationsInput>;
+};
+export declare type Book = {
+    id: Scalars['Int'];
+    name?: Maybe<Scalars['String']>;
+    authorId: Scalars['Int'];
+    author?: Maybe<Author>;
+};
+export declare type BookWhereUniqueInput = {
+    id?: InputMaybe<Scalars['Int']>;
+};
+export declare type BookWhereInput = {
+    AND?: InputMaybe<Array<BookWhereInput>>;
+    OR?: InputMaybe<Array<BookWhereInput>>;
+    NOT?: InputMaybe<Array<BookWhereInput>>;
+    id?: InputMaybe<IntFilter>;
+    name?: InputMaybe<StringNullableFilter>;
+    authorId?: InputMaybe<IntFilter>;
+};
+export declare type BookOrderByWithRelationInput = {
+    id?: InputMaybe<SortOrder>;
+    name?: InputMaybe<SortOrder>;
+    authorId?: InputMaybe<SortOrder>;
+};
 export declare enum BookScalarFieldEnum {
     id = "id",
     name = "name",
@@ -323,88 +512,6 @@ export declare type BookScalarWhereWithAggregatesInput = {
     name?: InputMaybe<StringNullableWithAggregatesFilter>;
     authorId?: InputMaybe<IntWithAggregatesFilter>;
 };
-export declare type IntWithAggregatesFilter = {
-    equals?: InputMaybe<Scalars['Int']>;
-    in?: InputMaybe<Array<Scalars['Int']>>;
-    notIn?: InputMaybe<Array<Scalars['Int']>>;
-    lt?: InputMaybe<Scalars['Int']>;
-    lte?: InputMaybe<Scalars['Int']>;
-    gt?: InputMaybe<Scalars['Int']>;
-    gte?: InputMaybe<Scalars['Int']>;
-    not?: InputMaybe<NestedIntWithAggregatesFilter>;
-    _count?: InputMaybe<NestedIntFilter>;
-    _avg?: InputMaybe<NestedFloatFilter>;
-    _sum?: InputMaybe<NestedIntFilter>;
-    _min?: InputMaybe<NestedIntFilter>;
-    _max?: InputMaybe<NestedIntFilter>;
-};
-export declare type NestedIntWithAggregatesFilter = {
-    equals?: InputMaybe<Scalars['Int']>;
-    in?: InputMaybe<Array<Scalars['Int']>>;
-    notIn?: InputMaybe<Array<Scalars['Int']>>;
-    lt?: InputMaybe<Scalars['Int']>;
-    lte?: InputMaybe<Scalars['Int']>;
-    gt?: InputMaybe<Scalars['Int']>;
-    gte?: InputMaybe<Scalars['Int']>;
-    not?: InputMaybe<NestedIntWithAggregatesFilter>;
-    _count?: InputMaybe<NestedIntFilter>;
-    _avg?: InputMaybe<NestedFloatFilter>;
-    _sum?: InputMaybe<NestedIntFilter>;
-    _min?: InputMaybe<NestedIntFilter>;
-    _max?: InputMaybe<NestedIntFilter>;
-};
-export declare type NestedFloatFilter = {
-    equals?: InputMaybe<Scalars['Float']>;
-    in?: InputMaybe<Array<Scalars['Float']>>;
-    notIn?: InputMaybe<Array<Scalars['Float']>>;
-    lt?: InputMaybe<Scalars['Float']>;
-    lte?: InputMaybe<Scalars['Float']>;
-    gt?: InputMaybe<Scalars['Float']>;
-    gte?: InputMaybe<Scalars['Float']>;
-    not?: InputMaybe<NestedFloatFilter>;
-};
-export declare type StringNullableWithAggregatesFilter = {
-    equals?: InputMaybe<Scalars['String']>;
-    in?: InputMaybe<Array<Scalars['String']>>;
-    notIn?: InputMaybe<Array<Scalars['String']>>;
-    lt?: InputMaybe<Scalars['String']>;
-    lte?: InputMaybe<Scalars['String']>;
-    gt?: InputMaybe<Scalars['String']>;
-    gte?: InputMaybe<Scalars['String']>;
-    contains?: InputMaybe<Scalars['String']>;
-    startsWith?: InputMaybe<Scalars['String']>;
-    endsWith?: InputMaybe<Scalars['String']>;
-    not?: InputMaybe<NestedStringNullableWithAggregatesFilter>;
-    _count?: InputMaybe<NestedIntNullableFilter>;
-    _min?: InputMaybe<NestedStringNullableFilter>;
-    _max?: InputMaybe<NestedStringNullableFilter>;
-};
-export declare type NestedStringNullableWithAggregatesFilter = {
-    equals?: InputMaybe<Scalars['String']>;
-    in?: InputMaybe<Array<Scalars['String']>>;
-    notIn?: InputMaybe<Array<Scalars['String']>>;
-    lt?: InputMaybe<Scalars['String']>;
-    lte?: InputMaybe<Scalars['String']>;
-    gt?: InputMaybe<Scalars['String']>;
-    gte?: InputMaybe<Scalars['String']>;
-    contains?: InputMaybe<Scalars['String']>;
-    startsWith?: InputMaybe<Scalars['String']>;
-    endsWith?: InputMaybe<Scalars['String']>;
-    not?: InputMaybe<NestedStringNullableWithAggregatesFilter>;
-    _count?: InputMaybe<NestedIntNullableFilter>;
-    _min?: InputMaybe<NestedStringNullableFilter>;
-    _max?: InputMaybe<NestedStringNullableFilter>;
-};
-export declare type NestedIntNullableFilter = {
-    equals?: InputMaybe<Scalars['Int']>;
-    in?: InputMaybe<Array<Scalars['Int']>>;
-    notIn?: InputMaybe<Array<Scalars['Int']>>;
-    lt?: InputMaybe<Scalars['Int']>;
-    lte?: InputMaybe<Scalars['Int']>;
-    gt?: InputMaybe<Scalars['Int']>;
-    gte?: InputMaybe<Scalars['Int']>;
-    not?: InputMaybe<NestedIntNullableFilter>;
-};
 export declare type BookCreateInput = {
     name?: InputMaybe<Scalars['String']>;
     authorId: Scalars['Int'];
@@ -413,9 +520,6 @@ export declare type BookUpdateInput = {
     name?: InputMaybe<NullableStringFieldUpdateOperationsInput>;
     authorId?: InputMaybe<IntFieldUpdateOperationsInput>;
 };
-export declare type NullableStringFieldUpdateOperationsInput = {
-    set?: InputMaybe<Scalars['String']>;
-};
 export declare type IntFieldUpdateOperationsInput = {
     set?: InputMaybe<Scalars['Int']>;
     increment?: InputMaybe<Scalars['Int']>;
@@ -423,113 +527,9 @@ export declare type IntFieldUpdateOperationsInput = {
     multiply?: InputMaybe<Scalars['Int']>;
     divide?: InputMaybe<Scalars['Int']>;
 };
-export declare type AffectedRowsOutput = {
-    count: Scalars['Int'];
-};
 export declare type BookUpdateManyMutationInput = {
     name?: InputMaybe<NullableStringFieldUpdateOperationsInput>;
     authorId?: InputMaybe<IntFieldUpdateOperationsInput>;
-};
-export declare type Author = {
-    id: Scalars['Int'];
-    name?: Maybe<Scalars['String']>;
-    books?: Maybe<Array<Maybe<Book>>>;
-};
-export declare type AuthorWhereUniqueInput = {
-    id?: InputMaybe<Scalars['Int']>;
-};
-export declare type AuthorWhereInput = {
-    AND?: InputMaybe<Array<AuthorWhereInput>>;
-    OR?: InputMaybe<Array<AuthorWhereInput>>;
-    NOT?: InputMaybe<Array<AuthorWhereInput>>;
-    id?: InputMaybe<IntFilter>;
-    name?: InputMaybe<StringNullableFilter>;
-};
-export declare type AuthorOrderByWithRelationInput = {
-    id?: InputMaybe<SortOrder>;
-    name?: InputMaybe<SortOrder>;
-};
-export declare enum AuthorScalarFieldEnum {
-    id = "id",
-    name = "name"
-}
-export declare type AggregateAuthor = {
-    _count?: Maybe<AuthorCountAggregate>;
-    _avg?: Maybe<AuthorAvgAggregate>;
-    _sum?: Maybe<AuthorSumAggregate>;
-    _min?: Maybe<AuthorMinAggregate>;
-    _max?: Maybe<AuthorMaxAggregate>;
-};
-export declare type AuthorCountAggregate = {
-    id: Scalars['Int'];
-    name: Scalars['Int'];
-    _all: Scalars['Int'];
-};
-export declare type AuthorAvgAggregate = {
-    id?: Maybe<Scalars['Float']>;
-};
-export declare type AuthorSumAggregate = {
-    id?: Maybe<Scalars['Int']>;
-};
-export declare type AuthorMinAggregate = {
-    id?: Maybe<Scalars['Int']>;
-    name?: Maybe<Scalars['String']>;
-};
-export declare type AuthorMaxAggregate = {
-    id?: Maybe<Scalars['Int']>;
-    name?: Maybe<Scalars['String']>;
-};
-export declare type AuthorGroupBy = {
-    id: Scalars['Int'];
-    name?: Maybe<Scalars['String']>;
-    _count?: Maybe<AuthorCountAggregate>;
-    _avg?: Maybe<AuthorAvgAggregate>;
-    _sum?: Maybe<AuthorSumAggregate>;
-    _min?: Maybe<AuthorMinAggregate>;
-    _max?: Maybe<AuthorMaxAggregate>;
-};
-export declare type AuthorOrderByWithAggregationInput = {
-    id?: InputMaybe<SortOrder>;
-    name?: InputMaybe<SortOrder>;
-    _count?: InputMaybe<AuthorCountOrderByAggregateInput>;
-    _avg?: InputMaybe<AuthorAvgOrderByAggregateInput>;
-    _max?: InputMaybe<AuthorMaxOrderByAggregateInput>;
-    _min?: InputMaybe<AuthorMinOrderByAggregateInput>;
-    _sum?: InputMaybe<AuthorSumOrderByAggregateInput>;
-};
-export declare type AuthorCountOrderByAggregateInput = {
-    id?: InputMaybe<SortOrder>;
-    name?: InputMaybe<SortOrder>;
-};
-export declare type AuthorAvgOrderByAggregateInput = {
-    id?: InputMaybe<SortOrder>;
-};
-export declare type AuthorMaxOrderByAggregateInput = {
-    id?: InputMaybe<SortOrder>;
-    name?: InputMaybe<SortOrder>;
-};
-export declare type AuthorMinOrderByAggregateInput = {
-    id?: InputMaybe<SortOrder>;
-    name?: InputMaybe<SortOrder>;
-};
-export declare type AuthorSumOrderByAggregateInput = {
-    id?: InputMaybe<SortOrder>;
-};
-export declare type AuthorScalarWhereWithAggregatesInput = {
-    AND?: InputMaybe<Array<AuthorScalarWhereWithAggregatesInput>>;
-    OR?: InputMaybe<Array<AuthorScalarWhereWithAggregatesInput>>;
-    NOT?: InputMaybe<Array<AuthorScalarWhereWithAggregatesInput>>;
-    id?: InputMaybe<IntWithAggregatesFilter>;
-    name?: InputMaybe<StringNullableWithAggregatesFilter>;
-};
-export declare type AuthorCreateInput = {
-    name?: InputMaybe<Scalars['String']>;
-};
-export declare type AuthorUpdateInput = {
-    name?: InputMaybe<NullableStringFieldUpdateOperationsInput>;
-};
-export declare type AuthorUpdateManyMutationInput = {
-    name?: InputMaybe<NullableStringFieldUpdateOperationsInput>;
 };
 export declare type WithIndex<TObject> = TObject & Record<string, any>;
 export declare type ResolversObject<TObject> = WithIndex<TObject>;
@@ -572,54 +572,22 @@ export declare type DirectiveResolverFn<TResult = {}, TParent = {}, TContext = {
 export declare type ResolversTypes = ResolversObject<{
     Query: ResolverTypeWrapper<{}>;
     Mutation: ResolverTypeWrapper<{}>;
-    Book: ResolverTypeWrapper<Book>;
+    Author: ResolverTypeWrapper<Author>;
     Int: ResolverTypeWrapper<Scalars['Int']>;
     String: ResolverTypeWrapper<Scalars['String']>;
-    BookWhereUniqueInput: BookWhereUniqueInput;
-    BookWhereInput: BookWhereInput;
+    AuthorWhereUniqueInput: AuthorWhereUniqueInput;
+    AuthorWhereInput: AuthorWhereInput;
     IntFilter: IntFilter;
     NestedIntFilter: NestedIntFilter;
     StringNullableFilter: StringNullableFilter;
     NestedStringNullableFilter: NestedStringNullableFilter;
-    BookOrderByWithRelationInput: BookOrderByWithRelationInput;
-    SortOrder: SortOrder;
-    BookScalarFieldEnum: BookScalarFieldEnum;
-    AggregateBook: ResolverTypeWrapper<AggregateBook>;
-    BookCountAggregate: ResolverTypeWrapper<BookCountAggregate>;
-    BookAvgAggregate: ResolverTypeWrapper<BookAvgAggregate>;
-    Float: ResolverTypeWrapper<Scalars['Float']>;
-    BookSumAggregate: ResolverTypeWrapper<BookSumAggregate>;
-    BookMinAggregate: ResolverTypeWrapper<BookMinAggregate>;
-    BookMaxAggregate: ResolverTypeWrapper<BookMaxAggregate>;
-    BookGroupBy: ResolverTypeWrapper<BookGroupBy>;
-    BookOrderByWithAggregationInput: BookOrderByWithAggregationInput;
-    BookCountOrderByAggregateInput: BookCountOrderByAggregateInput;
-    BookAvgOrderByAggregateInput: BookAvgOrderByAggregateInput;
-    BookMaxOrderByAggregateInput: BookMaxOrderByAggregateInput;
-    BookMinOrderByAggregateInput: BookMinOrderByAggregateInput;
-    BookSumOrderByAggregateInput: BookSumOrderByAggregateInput;
-    BookScalarWhereWithAggregatesInput: BookScalarWhereWithAggregatesInput;
-    IntWithAggregatesFilter: IntWithAggregatesFilter;
-    NestedIntWithAggregatesFilter: NestedIntWithAggregatesFilter;
-    NestedFloatFilter: NestedFloatFilter;
-    StringNullableWithAggregatesFilter: StringNullableWithAggregatesFilter;
-    NestedStringNullableWithAggregatesFilter: NestedStringNullableWithAggregatesFilter;
-    NestedIntNullableFilter: NestedIntNullableFilter;
-    BookCreateInput: BookCreateInput;
-    BookUpdateInput: BookUpdateInput;
-    NullableStringFieldUpdateOperationsInput: NullableStringFieldUpdateOperationsInput;
-    IntFieldUpdateOperationsInput: IntFieldUpdateOperationsInput;
-    AffectedRowsOutput: ResolverTypeWrapper<AffectedRowsOutput>;
-    BookUpdateManyMutationInput: BookUpdateManyMutationInput;
-    Boolean: ResolverTypeWrapper<Scalars['Boolean']>;
-    Author: ResolverTypeWrapper<Author>;
-    AuthorWhereUniqueInput: AuthorWhereUniqueInput;
-    AuthorWhereInput: AuthorWhereInput;
     AuthorOrderByWithRelationInput: AuthorOrderByWithRelationInput;
+    SortOrder: SortOrder;
     AuthorScalarFieldEnum: AuthorScalarFieldEnum;
     AggregateAuthor: ResolverTypeWrapper<AggregateAuthor>;
     AuthorCountAggregate: ResolverTypeWrapper<AuthorCountAggregate>;
     AuthorAvgAggregate: ResolverTypeWrapper<AuthorAvgAggregate>;
+    Float: ResolverTypeWrapper<Scalars['Float']>;
     AuthorSumAggregate: ResolverTypeWrapper<AuthorSumAggregate>;
     AuthorMinAggregate: ResolverTypeWrapper<AuthorMinAggregate>;
     AuthorMaxAggregate: ResolverTypeWrapper<AuthorMaxAggregate>;
@@ -631,32 +599,30 @@ export declare type ResolversTypes = ResolversObject<{
     AuthorMinOrderByAggregateInput: AuthorMinOrderByAggregateInput;
     AuthorSumOrderByAggregateInput: AuthorSumOrderByAggregateInput;
     AuthorScalarWhereWithAggregatesInput: AuthorScalarWhereWithAggregatesInput;
+    IntWithAggregatesFilter: IntWithAggregatesFilter;
+    NestedIntWithAggregatesFilter: NestedIntWithAggregatesFilter;
+    NestedFloatFilter: NestedFloatFilter;
+    StringNullableWithAggregatesFilter: StringNullableWithAggregatesFilter;
+    NestedStringNullableWithAggregatesFilter: NestedStringNullableWithAggregatesFilter;
+    NestedIntNullableFilter: NestedIntNullableFilter;
     AuthorCreateInput: AuthorCreateInput;
     AuthorUpdateInput: AuthorUpdateInput;
+    NullableStringFieldUpdateOperationsInput: NullableStringFieldUpdateOperationsInput;
+    AffectedRowsOutput: ResolverTypeWrapper<AffectedRowsOutput>;
     AuthorUpdateManyMutationInput: AuthorUpdateManyMutationInput;
-}>;
-/** Mapping between all available schema types and the resolvers parents */
-export declare type ResolversParentTypes = ResolversObject<{
-    Query: {};
-    Mutation: {};
-    Book: Book;
-    Int: Scalars['Int'];
-    String: Scalars['String'];
+    Boolean: ResolverTypeWrapper<Scalars['Boolean']>;
+    Book: ResolverTypeWrapper<Book>;
     BookWhereUniqueInput: BookWhereUniqueInput;
     BookWhereInput: BookWhereInput;
-    IntFilter: IntFilter;
-    NestedIntFilter: NestedIntFilter;
-    StringNullableFilter: StringNullableFilter;
-    NestedStringNullableFilter: NestedStringNullableFilter;
     BookOrderByWithRelationInput: BookOrderByWithRelationInput;
-    AggregateBook: AggregateBook;
-    BookCountAggregate: BookCountAggregate;
-    BookAvgAggregate: BookAvgAggregate;
-    Float: Scalars['Float'];
-    BookSumAggregate: BookSumAggregate;
-    BookMinAggregate: BookMinAggregate;
-    BookMaxAggregate: BookMaxAggregate;
-    BookGroupBy: BookGroupBy;
+    BookScalarFieldEnum: BookScalarFieldEnum;
+    AggregateBook: ResolverTypeWrapper<AggregateBook>;
+    BookCountAggregate: ResolverTypeWrapper<BookCountAggregate>;
+    BookAvgAggregate: ResolverTypeWrapper<BookAvgAggregate>;
+    BookSumAggregate: ResolverTypeWrapper<BookSumAggregate>;
+    BookMinAggregate: ResolverTypeWrapper<BookMinAggregate>;
+    BookMaxAggregate: ResolverTypeWrapper<BookMaxAggregate>;
+    BookGroupBy: ResolverTypeWrapper<BookGroupBy>;
     BookOrderByWithAggregationInput: BookOrderByWithAggregationInput;
     BookCountOrderByAggregateInput: BookCountOrderByAggregateInput;
     BookAvgOrderByAggregateInput: BookAvgOrderByAggregateInput;
@@ -664,26 +630,29 @@ export declare type ResolversParentTypes = ResolversObject<{
     BookMinOrderByAggregateInput: BookMinOrderByAggregateInput;
     BookSumOrderByAggregateInput: BookSumOrderByAggregateInput;
     BookScalarWhereWithAggregatesInput: BookScalarWhereWithAggregatesInput;
-    IntWithAggregatesFilter: IntWithAggregatesFilter;
-    NestedIntWithAggregatesFilter: NestedIntWithAggregatesFilter;
-    NestedFloatFilter: NestedFloatFilter;
-    StringNullableWithAggregatesFilter: StringNullableWithAggregatesFilter;
-    NestedStringNullableWithAggregatesFilter: NestedStringNullableWithAggregatesFilter;
-    NestedIntNullableFilter: NestedIntNullableFilter;
     BookCreateInput: BookCreateInput;
     BookUpdateInput: BookUpdateInput;
-    NullableStringFieldUpdateOperationsInput: NullableStringFieldUpdateOperationsInput;
     IntFieldUpdateOperationsInput: IntFieldUpdateOperationsInput;
-    AffectedRowsOutput: AffectedRowsOutput;
     BookUpdateManyMutationInput: BookUpdateManyMutationInput;
-    Boolean: Scalars['Boolean'];
+}>;
+/** Mapping between all available schema types and the resolvers parents */
+export declare type ResolversParentTypes = ResolversObject<{
+    Query: {};
+    Mutation: {};
     Author: Author;
+    Int: Scalars['Int'];
+    String: Scalars['String'];
     AuthorWhereUniqueInput: AuthorWhereUniqueInput;
     AuthorWhereInput: AuthorWhereInput;
+    IntFilter: IntFilter;
+    NestedIntFilter: NestedIntFilter;
+    StringNullableFilter: StringNullableFilter;
+    NestedStringNullableFilter: NestedStringNullableFilter;
     AuthorOrderByWithRelationInput: AuthorOrderByWithRelationInput;
     AggregateAuthor: AggregateAuthor;
     AuthorCountAggregate: AuthorCountAggregate;
     AuthorAvgAggregate: AuthorAvgAggregate;
+    Float: Scalars['Float'];
     AuthorSumAggregate: AuthorSumAggregate;
     AuthorMinAggregate: AuthorMinAggregate;
     AuthorMaxAggregate: AuthorMaxAggregate;
@@ -695,35 +664,118 @@ export declare type ResolversParentTypes = ResolversObject<{
     AuthorMinOrderByAggregateInput: AuthorMinOrderByAggregateInput;
     AuthorSumOrderByAggregateInput: AuthorSumOrderByAggregateInput;
     AuthorScalarWhereWithAggregatesInput: AuthorScalarWhereWithAggregatesInput;
+    IntWithAggregatesFilter: IntWithAggregatesFilter;
+    NestedIntWithAggregatesFilter: NestedIntWithAggregatesFilter;
+    NestedFloatFilter: NestedFloatFilter;
+    StringNullableWithAggregatesFilter: StringNullableWithAggregatesFilter;
+    NestedStringNullableWithAggregatesFilter: NestedStringNullableWithAggregatesFilter;
+    NestedIntNullableFilter: NestedIntNullableFilter;
     AuthorCreateInput: AuthorCreateInput;
     AuthorUpdateInput: AuthorUpdateInput;
+    NullableStringFieldUpdateOperationsInput: NullableStringFieldUpdateOperationsInput;
+    AffectedRowsOutput: AffectedRowsOutput;
     AuthorUpdateManyMutationInput: AuthorUpdateManyMutationInput;
+    Boolean: Scalars['Boolean'];
+    Book: Book;
+    BookWhereUniqueInput: BookWhereUniqueInput;
+    BookWhereInput: BookWhereInput;
+    BookOrderByWithRelationInput: BookOrderByWithRelationInput;
+    AggregateBook: AggregateBook;
+    BookCountAggregate: BookCountAggregate;
+    BookAvgAggregate: BookAvgAggregate;
+    BookSumAggregate: BookSumAggregate;
+    BookMinAggregate: BookMinAggregate;
+    BookMaxAggregate: BookMaxAggregate;
+    BookGroupBy: BookGroupBy;
+    BookOrderByWithAggregationInput: BookOrderByWithAggregationInput;
+    BookCountOrderByAggregateInput: BookCountOrderByAggregateInput;
+    BookAvgOrderByAggregateInput: BookAvgOrderByAggregateInput;
+    BookMaxOrderByAggregateInput: BookMaxOrderByAggregateInput;
+    BookMinOrderByAggregateInput: BookMinOrderByAggregateInput;
+    BookSumOrderByAggregateInput: BookSumOrderByAggregateInput;
+    BookScalarWhereWithAggregatesInput: BookScalarWhereWithAggregatesInput;
+    BookCreateInput: BookCreateInput;
+    BookUpdateInput: BookUpdateInput;
+    IntFieldUpdateOperationsInput: IntFieldUpdateOperationsInput;
+    BookUpdateManyMutationInput: BookUpdateManyMutationInput;
 }>;
 export declare type QueryResolvers<ContextType = MeshContext, ParentType extends ResolversParentTypes['Query'] = ResolversParentTypes['Query']> = ResolversObject<{
-    book?: Resolver<Maybe<ResolversTypes['Book']>, ParentType, ContextType, RequireFields<QuerybookArgs, 'where'>>;
-    findFirstBook?: Resolver<Maybe<ResolversTypes['Book']>, ParentType, ContextType, RequireFields<QueryfindFirstBookArgs, never>>;
-    books?: Resolver<Array<ResolversTypes['Book']>, ParentType, ContextType, RequireFields<QuerybooksArgs, never>>;
-    aggregateBook?: Resolver<ResolversTypes['AggregateBook'], ParentType, ContextType, RequireFields<QueryaggregateBookArgs, never>>;
-    groupByBook?: Resolver<Array<ResolversTypes['BookGroupBy']>, ParentType, ContextType, RequireFields<QuerygroupByBookArgs, 'by'>>;
     author?: Resolver<Maybe<ResolversTypes['Author']>, ParentType, ContextType, RequireFields<QueryauthorArgs, 'where'>>;
     findFirstAuthor?: Resolver<Maybe<ResolversTypes['Author']>, ParentType, ContextType, RequireFields<QueryfindFirstAuthorArgs, never>>;
     authors?: Resolver<Array<ResolversTypes['Author']>, ParentType, ContextType, RequireFields<QueryauthorsArgs, never>>;
     aggregateAuthor?: Resolver<ResolversTypes['AggregateAuthor'], ParentType, ContextType, RequireFields<QueryaggregateAuthorArgs, never>>;
     groupByAuthor?: Resolver<Array<ResolversTypes['AuthorGroupBy']>, ParentType, ContextType, RequireFields<QuerygroupByAuthorArgs, 'by'>>;
+    book?: Resolver<Maybe<ResolversTypes['Book']>, ParentType, ContextType, RequireFields<QuerybookArgs, 'where'>>;
+    findFirstBook?: Resolver<Maybe<ResolversTypes['Book']>, ParentType, ContextType, RequireFields<QueryfindFirstBookArgs, never>>;
+    books?: Resolver<Array<ResolversTypes['Book']>, ParentType, ContextType, RequireFields<QuerybooksArgs, never>>;
+    aggregateBook?: Resolver<ResolversTypes['AggregateBook'], ParentType, ContextType, RequireFields<QueryaggregateBookArgs, never>>;
+    groupByBook?: Resolver<Array<ResolversTypes['BookGroupBy']>, ParentType, ContextType, RequireFields<QuerygroupByBookArgs, 'by'>>;
 }>;
 export declare type MutationResolvers<ContextType = MeshContext, ParentType extends ResolversParentTypes['Mutation'] = ResolversParentTypes['Mutation']> = ResolversObject<{
-    createBook?: Resolver<ResolversTypes['Book'], ParentType, ContextType, RequireFields<MutationcreateBookArgs, 'data'>>;
-    deleteBook?: Resolver<Maybe<ResolversTypes['Book']>, ParentType, ContextType, RequireFields<MutationdeleteBookArgs, 'where'>>;
-    updateBook?: Resolver<Maybe<ResolversTypes['Book']>, ParentType, ContextType, RequireFields<MutationupdateBookArgs, 'data' | 'where'>>;
-    deleteManyBook?: Resolver<ResolversTypes['AffectedRowsOutput'], ParentType, ContextType, RequireFields<MutationdeleteManyBookArgs, never>>;
-    updateManyBook?: Resolver<ResolversTypes['AffectedRowsOutput'], ParentType, ContextType, RequireFields<MutationupdateManyBookArgs, 'data'>>;
-    upsertBook?: Resolver<ResolversTypes['Book'], ParentType, ContextType, RequireFields<MutationupsertBookArgs, 'where' | 'create' | 'update'>>;
     createAuthor?: Resolver<ResolversTypes['Author'], ParentType, ContextType, RequireFields<MutationcreateAuthorArgs, 'data'>>;
     deleteAuthor?: Resolver<Maybe<ResolversTypes['Author']>, ParentType, ContextType, RequireFields<MutationdeleteAuthorArgs, 'where'>>;
     updateAuthor?: Resolver<Maybe<ResolversTypes['Author']>, ParentType, ContextType, RequireFields<MutationupdateAuthorArgs, 'data' | 'where'>>;
     deleteManyAuthor?: Resolver<ResolversTypes['AffectedRowsOutput'], ParentType, ContextType, RequireFields<MutationdeleteManyAuthorArgs, never>>;
     updateManyAuthor?: Resolver<ResolversTypes['AffectedRowsOutput'], ParentType, ContextType, RequireFields<MutationupdateManyAuthorArgs, 'data'>>;
     upsertAuthor?: Resolver<ResolversTypes['Author'], ParentType, ContextType, RequireFields<MutationupsertAuthorArgs, 'where' | 'create' | 'update'>>;
+    createBook?: Resolver<ResolversTypes['Book'], ParentType, ContextType, RequireFields<MutationcreateBookArgs, 'data'>>;
+    deleteBook?: Resolver<Maybe<ResolversTypes['Book']>, ParentType, ContextType, RequireFields<MutationdeleteBookArgs, 'where'>>;
+    updateBook?: Resolver<Maybe<ResolversTypes['Book']>, ParentType, ContextType, RequireFields<MutationupdateBookArgs, 'data' | 'where'>>;
+    deleteManyBook?: Resolver<ResolversTypes['AffectedRowsOutput'], ParentType, ContextType, RequireFields<MutationdeleteManyBookArgs, never>>;
+    updateManyBook?: Resolver<ResolversTypes['AffectedRowsOutput'], ParentType, ContextType, RequireFields<MutationupdateManyBookArgs, 'data'>>;
+    upsertBook?: Resolver<ResolversTypes['Book'], ParentType, ContextType, RequireFields<MutationupsertBookArgs, 'where' | 'create' | 'update'>>;
+}>;
+export declare type AuthorResolvers<ContextType = MeshContext, ParentType extends ResolversParentTypes['Author'] = ResolversParentTypes['Author']> = ResolversObject<{
+    id?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
+    name?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+    books?: Resolver<Maybe<Array<Maybe<ResolversTypes['Book']>>>, ParentType, ContextType>;
+    __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+}>;
+export declare type AggregateAuthorResolvers<ContextType = MeshContext, ParentType extends ResolversParentTypes['AggregateAuthor'] = ResolversParentTypes['AggregateAuthor']> = ResolversObject<{
+    _count?: Resolver<Maybe<ResolversTypes['AuthorCountAggregate']>, ParentType, ContextType>;
+    _avg?: Resolver<Maybe<ResolversTypes['AuthorAvgAggregate']>, ParentType, ContextType>;
+    _sum?: Resolver<Maybe<ResolversTypes['AuthorSumAggregate']>, ParentType, ContextType>;
+    _min?: Resolver<Maybe<ResolversTypes['AuthorMinAggregate']>, ParentType, ContextType>;
+    _max?: Resolver<Maybe<ResolversTypes['AuthorMaxAggregate']>, ParentType, ContextType>;
+    __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+}>;
+export declare type AuthorCountAggregateResolvers<ContextType = MeshContext, ParentType extends ResolversParentTypes['AuthorCountAggregate'] = ResolversParentTypes['AuthorCountAggregate']> = ResolversObject<{
+    id?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
+    name?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
+    _all?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
+    __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+}>;
+export declare type AuthorAvgAggregateResolvers<ContextType = MeshContext, ParentType extends ResolversParentTypes['AuthorAvgAggregate'] = ResolversParentTypes['AuthorAvgAggregate']> = ResolversObject<{
+    id?: Resolver<Maybe<ResolversTypes['Float']>, ParentType, ContextType>;
+    __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+}>;
+export declare type AuthorSumAggregateResolvers<ContextType = MeshContext, ParentType extends ResolversParentTypes['AuthorSumAggregate'] = ResolversParentTypes['AuthorSumAggregate']> = ResolversObject<{
+    id?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>;
+    __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+}>;
+export declare type AuthorMinAggregateResolvers<ContextType = MeshContext, ParentType extends ResolversParentTypes['AuthorMinAggregate'] = ResolversParentTypes['AuthorMinAggregate']> = ResolversObject<{
+    id?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>;
+    name?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+    __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+}>;
+export declare type AuthorMaxAggregateResolvers<ContextType = MeshContext, ParentType extends ResolversParentTypes['AuthorMaxAggregate'] = ResolversParentTypes['AuthorMaxAggregate']> = ResolversObject<{
+    id?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>;
+    name?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+    __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+}>;
+export declare type AuthorGroupByResolvers<ContextType = MeshContext, ParentType extends ResolversParentTypes['AuthorGroupBy'] = ResolversParentTypes['AuthorGroupBy']> = ResolversObject<{
+    id?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
+    name?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+    _count?: Resolver<Maybe<ResolversTypes['AuthorCountAggregate']>, ParentType, ContextType>;
+    _avg?: Resolver<Maybe<ResolversTypes['AuthorAvgAggregate']>, ParentType, ContextType>;
+    _sum?: Resolver<Maybe<ResolversTypes['AuthorSumAggregate']>, ParentType, ContextType>;
+    _min?: Resolver<Maybe<ResolversTypes['AuthorMinAggregate']>, ParentType, ContextType>;
+    _max?: Resolver<Maybe<ResolversTypes['AuthorMaxAggregate']>, ParentType, ContextType>;
+    __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+}>;
+export declare type AffectedRowsOutputResolvers<ContextType = MeshContext, ParentType extends ResolversParentTypes['AffectedRowsOutput'] = ResolversParentTypes['AffectedRowsOutput']> = ResolversObject<{
+    count?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
+    __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 }>;
 export declare type BookResolvers<ContextType = MeshContext, ParentType extends ResolversParentTypes['Book'] = ResolversParentTypes['Book']> = ResolversObject<{
     id?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
@@ -780,70 +832,9 @@ export declare type BookGroupByResolvers<ContextType = MeshContext, ParentType e
     _max?: Resolver<Maybe<ResolversTypes['BookMaxAggregate']>, ParentType, ContextType>;
     __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 }>;
-export declare type AffectedRowsOutputResolvers<ContextType = MeshContext, ParentType extends ResolversParentTypes['AffectedRowsOutput'] = ResolversParentTypes['AffectedRowsOutput']> = ResolversObject<{
-    count?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
-    __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
-}>;
-export declare type AuthorResolvers<ContextType = MeshContext, ParentType extends ResolversParentTypes['Author'] = ResolversParentTypes['Author']> = ResolversObject<{
-    id?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
-    name?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-    books?: Resolver<Maybe<Array<Maybe<ResolversTypes['Book']>>>, ParentType, ContextType>;
-    __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
-}>;
-export declare type AggregateAuthorResolvers<ContextType = MeshContext, ParentType extends ResolversParentTypes['AggregateAuthor'] = ResolversParentTypes['AggregateAuthor']> = ResolversObject<{
-    _count?: Resolver<Maybe<ResolversTypes['AuthorCountAggregate']>, ParentType, ContextType>;
-    _avg?: Resolver<Maybe<ResolversTypes['AuthorAvgAggregate']>, ParentType, ContextType>;
-    _sum?: Resolver<Maybe<ResolversTypes['AuthorSumAggregate']>, ParentType, ContextType>;
-    _min?: Resolver<Maybe<ResolversTypes['AuthorMinAggregate']>, ParentType, ContextType>;
-    _max?: Resolver<Maybe<ResolversTypes['AuthorMaxAggregate']>, ParentType, ContextType>;
-    __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
-}>;
-export declare type AuthorCountAggregateResolvers<ContextType = MeshContext, ParentType extends ResolversParentTypes['AuthorCountAggregate'] = ResolversParentTypes['AuthorCountAggregate']> = ResolversObject<{
-    id?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
-    name?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
-    _all?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
-    __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
-}>;
-export declare type AuthorAvgAggregateResolvers<ContextType = MeshContext, ParentType extends ResolversParentTypes['AuthorAvgAggregate'] = ResolversParentTypes['AuthorAvgAggregate']> = ResolversObject<{
-    id?: Resolver<Maybe<ResolversTypes['Float']>, ParentType, ContextType>;
-    __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
-}>;
-export declare type AuthorSumAggregateResolvers<ContextType = MeshContext, ParentType extends ResolversParentTypes['AuthorSumAggregate'] = ResolversParentTypes['AuthorSumAggregate']> = ResolversObject<{
-    id?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>;
-    __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
-}>;
-export declare type AuthorMinAggregateResolvers<ContextType = MeshContext, ParentType extends ResolversParentTypes['AuthorMinAggregate'] = ResolversParentTypes['AuthorMinAggregate']> = ResolversObject<{
-    id?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>;
-    name?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-    __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
-}>;
-export declare type AuthorMaxAggregateResolvers<ContextType = MeshContext, ParentType extends ResolversParentTypes['AuthorMaxAggregate'] = ResolversParentTypes['AuthorMaxAggregate']> = ResolversObject<{
-    id?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>;
-    name?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-    __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
-}>;
-export declare type AuthorGroupByResolvers<ContextType = MeshContext, ParentType extends ResolversParentTypes['AuthorGroupBy'] = ResolversParentTypes['AuthorGroupBy']> = ResolversObject<{
-    id?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
-    name?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-    _count?: Resolver<Maybe<ResolversTypes['AuthorCountAggregate']>, ParentType, ContextType>;
-    _avg?: Resolver<Maybe<ResolversTypes['AuthorAvgAggregate']>, ParentType, ContextType>;
-    _sum?: Resolver<Maybe<ResolversTypes['AuthorSumAggregate']>, ParentType, ContextType>;
-    _min?: Resolver<Maybe<ResolversTypes['AuthorMinAggregate']>, ParentType, ContextType>;
-    _max?: Resolver<Maybe<ResolversTypes['AuthorMaxAggregate']>, ParentType, ContextType>;
-    __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
-}>;
 export declare type Resolvers<ContextType = MeshContext> = ResolversObject<{
     Query?: QueryResolvers<ContextType>;
     Mutation?: MutationResolvers<ContextType>;
-    Book?: BookResolvers<ContextType>;
-    AggregateBook?: AggregateBookResolvers<ContextType>;
-    BookCountAggregate?: BookCountAggregateResolvers<ContextType>;
-    BookAvgAggregate?: BookAvgAggregateResolvers<ContextType>;
-    BookSumAggregate?: BookSumAggregateResolvers<ContextType>;
-    BookMinAggregate?: BookMinAggregateResolvers<ContextType>;
-    BookMaxAggregate?: BookMaxAggregateResolvers<ContextType>;
-    BookGroupBy?: BookGroupByResolvers<ContextType>;
-    AffectedRowsOutput?: AffectedRowsOutputResolvers<ContextType>;
     Author?: AuthorResolvers<ContextType>;
     AggregateAuthor?: AggregateAuthorResolvers<ContextType>;
     AuthorCountAggregate?: AuthorCountAggregateResolvers<ContextType>;
@@ -852,25 +843,18 @@ export declare type Resolvers<ContextType = MeshContext> = ResolversObject<{
     AuthorMinAggregate?: AuthorMinAggregateResolvers<ContextType>;
     AuthorMaxAggregate?: AuthorMaxAggregateResolvers<ContextType>;
     AuthorGroupBy?: AuthorGroupByResolvers<ContextType>;
+    AffectedRowsOutput?: AffectedRowsOutputResolvers<ContextType>;
+    Book?: BookResolvers<ContextType>;
+    AggregateBook?: AggregateBookResolvers<ContextType>;
+    BookCountAggregate?: BookCountAggregateResolvers<ContextType>;
+    BookAvgAggregate?: BookAvgAggregateResolvers<ContextType>;
+    BookSumAggregate?: BookSumAggregateResolvers<ContextType>;
+    BookMinAggregate?: BookMinAggregateResolvers<ContextType>;
+    BookMaxAggregate?: BookMaxAggregateResolvers<ContextType>;
+    BookGroupBy?: BookGroupByResolvers<ContextType>;
 }>;
 import { MeshContext as BaseMeshContext, MeshInstance } from '@graphql-mesh/runtime';
 import { InContextSdkMethod } from '@graphql-mesh/types';
-export declare type QueryBookServiceSdk = {
-    book: InContextSdkMethod<Query['book'], QuerybookArgs, MeshContext>;
-    findFirstBook: InContextSdkMethod<Query['findFirstBook'], QueryfindFirstBookArgs, MeshContext>;
-    books: InContextSdkMethod<Query['books'], QuerybooksArgs, MeshContext>;
-    aggregateBook: InContextSdkMethod<Query['aggregateBook'], QueryaggregateBookArgs, MeshContext>;
-    groupByBook: InContextSdkMethod<Query['groupByBook'], QuerygroupByBookArgs, MeshContext>;
-};
-export declare type MutationBookServiceSdk = {
-    createBook: InContextSdkMethod<Mutation['createBook'], MutationcreateBookArgs, MeshContext>;
-    deleteBook: InContextSdkMethod<Mutation['deleteBook'], MutationdeleteBookArgs, MeshContext>;
-    updateBook: InContextSdkMethod<Mutation['updateBook'], MutationupdateBookArgs, MeshContext>;
-    deleteManyBook: InContextSdkMethod<Mutation['deleteManyBook'], MutationdeleteManyBookArgs, MeshContext>;
-    updateManyBook: InContextSdkMethod<Mutation['updateManyBook'], MutationupdateManyBookArgs, MeshContext>;
-    upsertBook: InContextSdkMethod<Mutation['upsertBook'], MutationupsertBookArgs, MeshContext>;
-};
-export declare type SubscriptionBookServiceSdk = {};
 export declare type QueryAuthorServiceSdk = {
     author: InContextSdkMethod<Query['author'], QueryauthorArgs, MeshContext>;
     findFirstAuthor: InContextSdkMethod<Query['findFirstAuthor'], QueryfindFirstAuthorArgs, MeshContext>;
@@ -887,13 +871,22 @@ export declare type MutationAuthorServiceSdk = {
     upsertAuthor: InContextSdkMethod<Mutation['upsertAuthor'], MutationupsertAuthorArgs, MeshContext>;
 };
 export declare type SubscriptionAuthorServiceSdk = {};
-export declare type BookServiceContext = {
-    ["BookService"]: {
-        Query: QueryBookServiceSdk;
-        Mutation: MutationBookServiceSdk;
-        Subscription: SubscriptionBookServiceSdk;
-    };
+export declare type QueryBookServiceSdk = {
+    book: InContextSdkMethod<Query['book'], QuerybookArgs, MeshContext>;
+    findFirstBook: InContextSdkMethod<Query['findFirstBook'], QueryfindFirstBookArgs, MeshContext>;
+    books: InContextSdkMethod<Query['books'], QuerybooksArgs, MeshContext>;
+    aggregateBook: InContextSdkMethod<Query['aggregateBook'], QueryaggregateBookArgs, MeshContext>;
+    groupByBook: InContextSdkMethod<Query['groupByBook'], QuerygroupByBookArgs, MeshContext>;
 };
+export declare type MutationBookServiceSdk = {
+    createBook: InContextSdkMethod<Mutation['createBook'], MutationcreateBookArgs, MeshContext>;
+    deleteBook: InContextSdkMethod<Mutation['deleteBook'], MutationdeleteBookArgs, MeshContext>;
+    updateBook: InContextSdkMethod<Mutation['updateBook'], MutationupdateBookArgs, MeshContext>;
+    deleteManyBook: InContextSdkMethod<Mutation['deleteManyBook'], MutationdeleteManyBookArgs, MeshContext>;
+    updateManyBook: InContextSdkMethod<Mutation['updateManyBook'], MutationupdateManyBookArgs, MeshContext>;
+    upsertBook: InContextSdkMethod<Mutation['upsertBook'], MutationupsertBookArgs, MeshContext>;
+};
+export declare type SubscriptionBookServiceSdk = {};
 export declare type AuthorServiceContext = {
     ["AuthorService"]: {
         Query: QueryAuthorServiceSdk;
@@ -901,7 +894,14 @@ export declare type AuthorServiceContext = {
         Subscription: SubscriptionAuthorServiceSdk;
     };
 };
-export declare type MeshContext = BookServiceContext & AuthorServiceContext & BaseMeshContext;
+export declare type BookServiceContext = {
+    ["BookService"]: {
+        Query: QueryBookServiceSdk;
+        Mutation: MutationBookServiceSdk;
+        Subscription: SubscriptionBookServiceSdk;
+    };
+};
+export declare type MeshContext = AuthorServiceContext & BookServiceContext & BaseMeshContext;
 import { GetMeshOptions } from '@graphql-mesh/runtime';
 import { YamlConfig } from '@graphql-mesh/types';
 import 'ts-node/register/transpile-only';
