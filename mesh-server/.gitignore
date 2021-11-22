@@ -1,0 +1,7 @@
+# Dependencies
+/node_modules
+
+# Misc
+.DS_Store
+.idea
+.history

@@ -1,0 +1,10 @@
+query MyQuery {
+  book(where: { id: 1 }) {
+    author {
+      id
+      name
+    }
+    name
+    id
+  }
+}

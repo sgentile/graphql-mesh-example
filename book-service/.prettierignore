@@ -1,0 +1,6 @@
+*.sql
+Dockerfile
+*.yml
+*.yaml
+*.tpl
+# src/migrations
